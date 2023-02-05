@@ -1,7 +1,10 @@
-// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-
+import 'package:visitor_hostel/pages/cancelRequest.dart';
+import 'package:visitor_hostel/pages/placeRequest.dart';
+import 'package:visitor_hostel/pages/viewBookings.dart'; 
+import 'package:visitor_hostel/pages/activeBookings.dart';
+import 'package:visitor_hostel/pages/completedBookings.dart'; 
 
 class VisitorHostel extends StatefulWidget {
   @override
@@ -33,7 +36,7 @@ class _VisitorHostelState extends State<VisitorHostel> {
       ),
       body: Column(
         children: <Widget>[
-          SizedBox(height: 16.0),
+          SizedBox(height: 24.0),
           Expanded(
             child: Container(
               height: double.infinity,
@@ -104,25 +107,58 @@ class _VisitorHostelState extends State<VisitorHostel> {
                   child: Column(
                       children: <Widget>[
                         SizedBox(height: 9.0),
-                        Text("View Bookings"),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ViewBookings()),
+                            );
+                          },
+                          child: Text("View Bookings"),
+                        ),
                         SizedBox(height: 9.0),
                         Divider(
                           thickness: 1.0,
                         ),
                         SizedBox(height: 9.0),
-                        Text("Cancellation Requests"),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => CancelledBookings()),
+                            );
+                          },
+                          child: Text("Cancellation Requests"),
+                        ),
+                        
                         SizedBox(height: 9.0),
                         Divider(
                           thickness: 1.0,
                         ),
                         SizedBox(height: 9.0),
-                        Text("Active Bookings"),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ActiveBookings()),
+                            );
+                          },
+                          child: Text("Active Bookings"),
+                        ),
                         SizedBox(height: 9.0),
                         Divider(
                           thickness: 1.0,
                         ),
                         SizedBox(height: 9.0),
-                        Text("Completed Bookings"),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => CompletedBookings()),
+                            );
+                          },
+                          child: Text("Completed Bookings"),
+                        ),
                         SizedBox(height: 9.0),
                       ],
                   ),
@@ -174,7 +210,12 @@ class _VisitorHostelState extends State<VisitorHostel> {
                   width: MediaQuery.of(context).size.width * 0.6,
                   child: MaterialButton(
                     height: 60.0,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PlaceRequest()),
+                      );
+                    },
                     color: Color.fromARGB(255, 243, 33, 33),
                     textColor: Colors.white,
                     shape: RoundedRectangleBorder(
